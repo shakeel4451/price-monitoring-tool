@@ -17,3 +17,7 @@ def load_history():
     with open(HISTORY_FILE,"r") as file:
       return json.load(file)
   return {}
+
+def save_history(history_data):
+  with open(HISTORY_FILE,"w") as file:
+    json.dump(history_data,file,indent=4)
