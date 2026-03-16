@@ -41,5 +41,17 @@ def run_daraz_monitor():
 
         clean_price_string=price_text.replace("Rs.","").replace(",","").strip()
         current_price=clean_price_string
+
+        if title in history:
+          old_price=history[title]
+          price_diff=current_price - old_price
+
+          if price_diff<0:
+            status="📉 Price dropped"
+          elif price_diff>0:
+            status="📈 Price Increased"
+          else:
+            status="➖ NO CHANGE"
+          print(f"   ↳ {title[:30]}... | Old: Rs.{old_price} | New: Rs.{current_price} | {status}")
       except:
         print
