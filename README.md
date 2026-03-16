@@ -151,7 +151,6 @@ _Note: Run once to establish the baseline JSON database. Subsequent runs will co
 
 **Muhammad Shakeel** | Data Engineer
 
-- 💼 **Upwork:** [Your Upwork Profile Link]
 - 🐙 **GitHub:** [https://github.com/shakeel4451](🐙 GitHub: https://github.com/shakeel4451)
 
 # 📜 License
