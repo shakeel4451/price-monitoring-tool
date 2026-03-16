@@ -21,3 +21,8 @@ def load_history():
 def save_history(history_data):
   with open(HISTORY_FILE,"w") as file:
     json.dump(history_data,file,indent=4)
+
+def run_daraz_monitor():
+  print("🔍 Launching Daraz Live Price Monitor...")
+  history=load_history()
+  alerts=[]
