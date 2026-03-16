@@ -8,8 +8,8 @@ from datetime import datetime
 HISTORY_FILE="daraz_price_history.json"
 
 TARGET_PRODUCTS=[
-  "https://www.daraz.pk/catalog/?q=laptops",
-  "https://www.daraz.pk/catalog/?q=ear%20buds"
+  "https://www.daraz.pk/products/100-i3127508-s12470300.html",
+  "https://www.daraz.pk/products/-i541554565-s2534895720.html"
 ]
 
 def load_history():
