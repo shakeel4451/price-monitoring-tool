@@ -9,7 +9,9 @@ HISTORY_FILE="daraz_price_history.json"
 
 TARGET_PRODUCTS=[
   "https://www.daraz.pk/products/100-i3127508-s12470300.html",
-  "https://www.daraz.pk/products/-i541554565-s2534895720.html"
+  "https://www.daraz.pk/products/-i541554565-s2534895720.html",
+  "https://www.daraz.pk/products/1-900-i4157310-s27320176.html",
+  "https://www.daraz.pk/products/samsung-galaxy-s26-ultra-512-gb-get-free-galaxy-tab-a11-i1947943383-s14011679656.html"
 ]
 
 def load_history():
