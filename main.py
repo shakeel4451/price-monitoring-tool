@@ -36,27 +36,29 @@ def run_daraz_monitor():
     for url in TARGET_PRODUCTS:
       print(f"📡 Scanning Daraz Product...")
       try:
-        page.goto(url,timeout=6000)
-        page.wait_for_selector(".pdp-price_type_normal", timeout=15000)
-        title=page.locator(".pdp-mod-product-badge-title").inner_text()
+        page.goto(url,timeout=60000)
+        page.wait_for_load_state("networkidle", timeout=15000)
+        title = page.locator(".pdp-mod-product-badge-title").inner_text()
         price_text = page.locator(".pdp-price_type_normal").first.inner_text()
 
-        clean_price_string=price_text.replace("Rs.","").replace(",","").strip()
-        current_price=clean_price_string
+        clean_price_string = price_text.replace("Rs.", "").replace(",", "").strip()
+        current_price = float(clean_price_string)
 
         if title in history:
-          old_price=history[title]
-          price_diff=current_price - old_price
+          old_price = history[title]
+          price_diff = current_price - old_price
 
-          if price_diff<0:
-            status="📉 Price dropped"
-          elif price_diff>0:
-            status="📈 Price Increased"
+          if price_diff < 0:
+            status = "📉 Price dropped"
+          elif price_diff > 0:
+            status = "📈 Price Increased"
           else:
-            status="➖ NO CHANGE"
+            status = "➖ NO CHANGE"
+            
           print(f"   ↳ {title[:30]}... | Old: Rs.{old_price} | New: Rs.{current_price} | {status}")
 
-          if price_diff<0:
+          # Only append to alerts if price dropped
+          if price_diff < 0:
             alerts.append({
               "Product" : title,
               "Old Price (Rs)": old_price,
@@ -65,11 +67,14 @@ def run_daraz_monitor():
               "Date Detected": datetime.now().strftime("%Y-%m-%d %H:%M"),
               "Link": url
             })
-          else:
-            print(f"   ↳ 🆕 New product logged: {title[:30]}... | Baseline price: Rs.{current_price}")
+            
+        else: # ✅ PROPERLY ALIGNED TO LOG NEW PRODUCTS
+          print(f"   ↳ 🆕 New product logged: {title[:30]}... | Baseline price: Rs.{current_price}")
 
-          history[title]=current_price
-          time.sleep(3)
+        # ✅ THESE HAPPEN NO MATTER WHAT (Update memory and pause)
+        history[title] = current_price
+        time.sleep(3)
+        
       except Exception as e:
         print(f"⚠️ Failed to scrape product. Reason: {e}")
         continue
