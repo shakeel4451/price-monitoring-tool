@@ -26,3 +26,7 @@ def run_daraz_monitor():
   print("🔍 Launching Daraz Live Price Monitor...")
   history=load_history()
   alerts=[]
+
+  with sync_playwright() as p:
+    browser=p.chromium.launch(headless=False)
+    page=browser.new_page()
