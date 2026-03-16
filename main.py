@@ -30,3 +30,10 @@ def run_daraz_monitor():
   with sync_playwright() as p:
     browser=p.chromium.launch(headless=False)
     page=browser.new_page()
+
+    for url in TARGET_PRODUCTS:
+      print(f"📡 Scanning Daraz Product...")
+      try:
+        page.goto(url,timeout=6000)
+      except:
+        print
