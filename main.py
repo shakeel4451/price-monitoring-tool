@@ -63,5 +63,15 @@ def run_daraz_monitor():
               "Date Detected": datetime.now().strftime("%Y-%m-%d %H:%M"),
               "Link": url
             })
-      except:
-        print
+          else:
+            print(f"   ↳ 🆕 New product logged: {title[:30]}... | Baseline price: Rs.{current_price}")
+
+          history[title]=current_price
+          time.sleep(3)
+      except Exception as e:
+        print(f"⚠️ Failed to scrape product. Reason: {e}")
+        continue
+    browser.close()
+  
+  save_history(history)
+  print("\n💾 Daraz Memory Bank (JSON) Updated.")
