@@ -35,5 +35,11 @@ def run_daraz_monitor():
       print(f"📡 Scanning Daraz Product...")
       try:
         page.goto(url,timeout=6000)
+        page.wait_for_selector(".pdp-price_type_normal", timeout=15000)
+        title=page.locator(".pdp-mod-product-badge-title").inner_text()
+        price_text = page.locator(".pdp-price_type_normal").first.inner_text()
+
+        clean_price_string=price_text.replace("Rs.","").replace(",","").strip()
+        current_price=clean_price_string
       except:
         print
