@@ -23,6 +23,28 @@ It is specifically engineered to handle dynamic JavaScript rendering and anti-bo
 
 ---
 
+# 🧰 Tech Stack
+
+- **Python** – Core automation logic
+- **Playwright** – Browser automation and dynamic page rendering
+- **Regex** – Price extraction and string cleaning
+- **JSON** – Historical state management database
+- **openpyxl** – Excel alert report generation
+
+---
+
+# 💡 Use Cases
+
+This system can be used for:
+
+• Monitoring competitor pricing automatically  
+• Detecting flash sales on e-commerce platforms  
+• Retail price intelligence systems  
+• Automated deal alert bots  
+• Market research and price analytics
+
+---
+
 # ⚙️ Workflow Diagram
 
 ```text
@@ -67,6 +89,8 @@ It is specifically engineered to handle dynamic JavaScript rendering and anti-bo
 
 _Demonstration of the console logging baseline prices and detecting historical drops._
 
+![Console Output](screenshots/output.png)
+
 ---
 
 # 📁 Dataset Example
@@ -85,8 +109,8 @@ Example of the generated `Daraz_Price_Drops.xlsx` alert report:
 ## 1️⃣ Clone the repository
 
 ```bash
-git clone [https://github.com/yourusername/ecommerce-price-monitor.git](https://github.com/yourusername/ecommerce-price-monitor.git)
-cd ecommerce-price-monitor
+git clone [https://github.com/shakeel4451/price-monitoring-tool.git](https://github.com/shakeel4451/price-monitoring-tool.git)
+cd price-monitoring-tool
 
 ```
 
@@ -128,4 +152,8 @@ _Note: Run once to establish the baseline JSON database. Subsequent runs will co
 **Muhammad Shakeel** | Data Engineer
 
 - 💼 **Upwork:** [Your Upwork Profile Link]
-- 🐙 **GitHub:** [https://github.com/shakeel4451](https://www.google.com/search?q=https://github.com/shakeel4451)
+- 🐙 **GitHub:** [https://github.com/shakeel4451](🐙 GitHub: https://github.com/shakeel4451)
+
+# 📜 License
+
+This project is licensed under the MIT License.
