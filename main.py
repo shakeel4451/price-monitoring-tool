@@ -53,5 +53,15 @@ def run_daraz_monitor():
           else:
             status="➖ NO CHANGE"
           print(f"   ↳ {title[:30]}... | Old: Rs.{old_price} | New: Rs.{current_price} | {status}")
+
+          if price_diff<0:
+            alerts.append({
+              "Product" : title,
+              "Old Price (Rs)": old_price,
+              "New Price (Rs)": current_price,
+              "Drop Amount": abs(price_diff),
+              "Date Detected": datetime.now().strftime("%Y-%m-%d %H:%M"),
+              "Link": url
+            })
       except:
         print
