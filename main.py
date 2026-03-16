@@ -75,3 +75,13 @@ def run_daraz_monitor():
   
   save_history(history)
   print("\n💾 Daraz Memory Bank (JSON) Updated.")
+  if alerts:
+    df=pd.DataFrame(alerts)
+    report_name = f"Daraz_Price_Drops_{datetime.now().strftime('%Y%m%d')}.xlsx"
+    df.to_excel(report_name, index=False)
+    print(f"🚨 ALERT: Price drops detected! Report generated: {report_name}")
+  else:
+    print("✅ No price drops detected today.")
+
+if __name__=="__main__":
+  run_daraz_monitor()
